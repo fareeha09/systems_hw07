@@ -13,7 +13,9 @@ int main(){
     p1->i=1; p1->next= p2;
 	p2->i=2; p2->next= p3;
 	p3->i=3; p3->next= NULL;
-    printf("List: ");
+    
+	printf("-------------------------------------------------\nTest 1\n------\n");
+	printf("List: ");
 	print_list(p0); //prints 0, 1, 2, 3, 
 	
 	printf("New list w/ 9 added to front: ");
@@ -27,5 +29,23 @@ int main(){
 	printf("List after freeing all nodes (should be empty): ");
 	struct node * afterfree = free_list(new_list0);
 	print_list( afterfree ); //print null
+	
+	struct node * nod = malloc(sizeof(struct node));
+	nod->i= NULL; nod->next=NULL;
+	printf("-------------------------------------------------\nTest 2\n------\n");
+	printf("List: ");
+	print_list(nod); //prints  
+	
+	printf("New list w/ 9 added to front: ");
+	struct node * new = insert_front(nod, 9);
+	print_list(new) ; //prints 9,  	
+	
+	printf("New list w/ null added to front: ");
+	struct node * new0 = insert_front( new, NULL);
+	print_list( new0 ) ; //prints 9, 	
+	
+	printf("List after freeing all nodes (should be empty): ");
+	struct node * after = free_list(new0);
+	print_list( after ); //print null
 	
 	}
